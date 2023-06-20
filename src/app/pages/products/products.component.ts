@@ -63,7 +63,7 @@ export class ProductsComponent implements OnInit {
     this.productService.destroy(id).subscribe(
       response =>{
         this.products = this.products.filter(product => product.id != id); 
-        //console.log(response);
+        console.log(response);
       }
     )
   }
