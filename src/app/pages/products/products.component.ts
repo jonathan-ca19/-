@@ -9,7 +9,6 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsComponent implements OnInit {
    products:ProductModel[] = [];
-
    selectedProduct: UpdateProductDto = {title:'', price:0, description:''};
 
   constructor(private productService:ProductService) {
@@ -55,15 +54,15 @@ export class ProductsComponent implements OnInit {
       }
     )
   }
-  editProduct(){
-    this.selectedProduct = {title:'', price:0, description:''};
+  editProduct(product:ProductModel){
+    this.selectedProduct = product;
   }
   
   deleteProduct(id: ProductModel['id']){
     this.productService.destroy(id).subscribe(
       response =>{
         this.products = this.products.filter(product => product.id != id); 
-        console.log(response);
+        //console.log(response);
       }
     )
   }
