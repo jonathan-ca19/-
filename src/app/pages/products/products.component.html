@@ -1,0 +1,27 @@
+<h1>Jonathan Cañar</h1>
+<div class="table-responsive">
+    <table class="table table-primary border:1px">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
+                <th>Imagen</th>
+                <th>Categoria</th>
+                <td>Acciones</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class=""  *ngFor="let product of products">
+                <td> {{product.title}} </td>
+                <td> {{product.price}} </td>
+                <td> {{product.description}} </td>
+                <td><img src="{{product.images}} " alt="" width="200px" height="200px" > </td>
+                <td> {{product.category}} </td>
+                <td><a href="" (click)="deleteProduct(product.id)">Eliminar</a></td>
+                <td> Editar </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
