@@ -2,6 +2,52 @@
 
 
 <h1>Jonathan Cañar</h1>
+<div class="card">
+    <div class="card-header">
+        CREAR PRODUCTO
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+          <label for="title" class="form-label">Nombre: </label>
+          <input type="text" name="" id="title" class="form-control" value="{{selectedProduct.title}}">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Precio: </label>
+            <input type="text" name="" id="price" class="form-control" value="{{selectedProduct.price}}">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Descripcion: </label>
+            <textarea name="" id="description" cols="80" rows="4">{{selectedProduct.description}}</textarea>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <td><button (click)="createProduct(product)">guardar</button></td>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        ACTUALIZAR PRODUCTO
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+          <label for="title" class="form-label">Nombre: </label>
+          <input type="text" name="" id="title" class="form-control" value="{{selectedProduct.title}}">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Precio: </label>
+            <input type="text" name="" id="price" class="form-control" value="{{selectedProduct.price}}">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Descripcion: </label>
+            <textarea name="" id="description" cols="80" rows="4">{{selectedProduct.description}}</textarea>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        <td><button (click)="updateProduct(product.id)">guardar</button></td>
+    </div>
+</div>
+<hr>
 <div class="table-responsive">
     <table class="table table-primary border:1px">
         <thead>
@@ -21,10 +67,11 @@
                 <td> {{product.description}} </td>
                 <td> {{product.category}} </td>
                 <td><img src="{{product.images}} " alt="" width="200px" height="200px" > </td>
-                <td><a href="" (click)="deleteProduct(product.id)">Eliminar</a></td>
-                <td><a href="" (click)="editProduct(product.selectedProduct)">Editar </a> </td>
+                <td><button href="" (click)="deleteProduct(product.id)">Eliminar</button></td>
+                <td><button href="" (click)="editProduct(product)">Editar</button></td>
             </tr>
         </tbody>
     </table>
 </div>
+
 

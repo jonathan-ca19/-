@@ -9,10 +9,10 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsComponent implements OnInit {
    products:ProductModel[] = [];
-   selectedProduct: UpdateProductDto = {title:'', price:0, description:''};
+   selectedProduct:UpdateProductDto = {}; 
 
   constructor(private productService:ProductService) {
-   this.editProduct();
+    this.initProduct();
   }
   
   ngOnInit(): void {
@@ -22,6 +22,11 @@ export class ProductsComponent implements OnInit {
     //this.updateProduct();
     //this.deleteProduct();
   }
+  
+  initProduct(): void {
+    this.selectedProduct = {title:'', price:0, description:''};
+  }
+
 
   getProducts(){
     const url = "https://api.escuelajs.co/api/v1/products";
@@ -46,7 +51,7 @@ export class ProductsComponent implements OnInit {
         console.log(response);
       }
     )
-  }
+  } 
   updateProduct(id: ProductModel['id'], product:UpdateProductDto){
     this.productService.update(id, product).subscribe(
       response =>{
